@@ -1,7 +1,6 @@
 package az.library.libraryservice;
 
 import az.library.libraryservice.client.RetreiveMessageErrorDecoder;
-import feign.Logger;
 import feign.codec.ErrorDecoder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,5 +14,8 @@ public class LibraryServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryServiceApplication.class, args);
 	}
-
+	@Bean
+	public ErrorDecoder errorDecoder(){
+		return new RetreiveMessageErrorDecoder();
+	}
 }
